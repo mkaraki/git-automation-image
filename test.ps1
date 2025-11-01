@@ -5,6 +5,7 @@ Import-Module Sentry
 Start-Sentry {
     $_.Dsn = $env:SENTRY_DSN
     $_.SendDefaultPii = $false
+    $_.TracesSampleRate = 1.0
 }
 
 trap {
