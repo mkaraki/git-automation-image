@@ -1,0 +1,22 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Declare Image tag
+      run: echo "DOCKER_IMAGE_NAME=mkaraki/git-automation-image:$(date +%s)" >> $GITHUB_ENV
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag ${{ env.DOCKER_IMAGE_NAME }}
+    - name: Test the Docker image
+      run: docker run -v ${{ github.workspace }}/test.sh:/test.sh:ro --rm ${{ env.DOCKER_IMAGE_NAME }} /bin/bash /test.sh
