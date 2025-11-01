@@ -21,4 +21,4 @@ jobs:
     - name: Test Bash script
       run: docker run -v ${{ github.workspace }}/test.sh:/test.sh:ro --rm ${{ env.DOCKER_IMAGE_NAME }} /bin/bash /test.sh
     - name: Test pwsh script
-      run: docker run -v ${{ github.workspace }}/test.ps1:/test.ps1:ro --rm ${{ env.DOCKER_IMAGE_NAME }} pwsh /test.ps1
+      run: docker run -v ${{ github.workspace }}/test.ps1:/test.ps1:ro -e SENTRY_DSN=${{ secrets.SENTRY_DSN }} --rm ${{ env.DOCKER_IMAGE_NAME }} pwsh /test.ps1
