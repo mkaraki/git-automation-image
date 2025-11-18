@@ -1,0 +1,42 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "customManagers": [
+        {
+            "customType": "regex",
+            "managerFilePatterns": [
+                "/^Dockerfile$/"
+            ],
+            "matchStrings": [
+                "#\\s*renovate:\\s*?(suite=(?<suite>.*?))?\\s*depName=(?<depName>.*?)?\\sARG .*_VERSION=\"(?<currentValue>.*)\""
+            ],
+            "registryUrlTemplate": "https://deb.debian.org/debian?suite={{#if suite }}{{suite}}{{else}}stable{{/if}}&components=main,contrib,non-free&binaryArch=amd64",
+            "datasourceTemplate": "deb"
+        }
+    ],
+    "packageRules": [
+        {
+            "matchDatasources": [
+                "deb"
+            ],
+            "matchPackageNames": [
+                "ca-certificates"
+            ],
+            "automerge": true
+        },
+        {
+            "matchDatasources": [
+                "deb"
+            ],
+            "matchPackageNames": [
+                "powershell"
+            ],
+            "registryUrls": [
+                "https://packages.microsoft.com/debian/12/prod?suite=trixie&components=main&binaryArch=amd64"
+            ]
+        }
+    ],
+    "assignees": [
+        "mkaraki"
+    ],
+    "pinDigests": true
+}
