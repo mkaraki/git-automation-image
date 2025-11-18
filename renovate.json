@@ -31,7 +31,7 @@
                 "powershell"
             ],
             "registryUrls": [
-                "https://packages.microsoft.com/debian/12/prod?suite=trixie&components=main&binaryArch=amd64"
+                "https://packages.microsoft.com/debian/12/prod?suite=bookworm&components=main&binaryArch=amd64"
             ]
         }
     ],
