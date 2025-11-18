@@ -11,6 +11,17 @@
             ],
             "registryUrlTemplate": "https://deb.debian.org/debian?suite={{#if suite }}{{suite}}{{else}}stable{{/if}}&components=main,contrib,non-free&binaryArch=amd64",
             "datasourceTemplate": "deb"
+        },
+        {
+            "customType": "regex",
+            "managerFilePatterns": [
+                "/^Dockerfile$/"
+            ],
+            "matchStrings": [
+                "POWERSHELL_VERSION=\"(?<currentValue>.*?)\""
+            ],
+            "datasourceTemplate": "github-releases",
+            "depNameTemplate": "PowerShell/PowerShell"
         }
     ],
     "packageRules": [
@@ -22,17 +33,6 @@
                 "ca-certificates"
             ],
             "automerge": true
-        },
-        {
-            "matchDatasources": [
-                "deb"
-            ],
-            "matchPackageNames": [
-                "powershell"
-            ],
-            "registryUrls": [
-                "https://packages.microsoft.com/debian/12/prod?suite=bookworm&components=main&binaryArch=amd64"
-            ]
         }
     ],
     "assignees": [
