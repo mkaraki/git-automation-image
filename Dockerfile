@@ -1,4 +1,4 @@
-FROM debian:trixie-slim@sha256:c0accef689e4f11b5efd1b6852e23f30c7495f2a9b1e6b1007299baab2ff4934
+FROM debian:trixie-slim@sha256:e711a7b30ec1261130d0a121050b4ed81d7fb28aeabcf4ea0c7876d4e9f5aca2
 
 # renovate: suite=trixie depName=wget
 ARG WGET_VERSION="1.25.0-2"
