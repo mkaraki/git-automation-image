@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y \
 
 SHELL ["/bin/bash", "-c"]
 
-ARG POWERSHELL_VERSION="v7.5.4"
+ARG POWERSHELL_VERSION="v7.6.0"
 
 RUN <<EOF
 wget -q https://github.com/PowerShell/PowerShell/releases/download/${POWERSHELL_VERSION}/powershell_${POWERSHELL_VERSION:1}-1.deb_amd64.deb -O powershell.deb
