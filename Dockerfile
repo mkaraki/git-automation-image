@@ -21,7 +21,9 @@ RUN apt-get update && apt-get install -y \
 
 SHELL ["/bin/bash", "-c"]
 
-ARG POWERSHELL_VERSION="v7.6.1"
+# Due to PowerShell Sentry isn't support PowerShell 7.6 series, Use 7.5.x for a moment
+# See: https://github.com/getsentry/sentry-powershell/pull/113
+ARG POWERSHELL_VERSION="v7.5.6"
 
 RUN <<EOF
 wget -q https://github.com/PowerShell/PowerShell/releases/download/${POWERSHELL_VERSION}/powershell_${POWERSHELL_VERSION:1}-1.deb_amd64.deb -O powershell.deb
@@ -29,7 +31,7 @@ apt-get update && apt-get install -y ./powershell.deb && apt-get clean && rm -rf
 rm powershell.deb
 EOF
 
-RUN pwsh -c "Install-Module -Name Sentry -Scope CurrentUser -Repository PSGallery -Force"
+RUN pwsh -c "Install-Module -Name Sentry -Scope AllUsers -Repository PSGallery -Force"
 
 COPY requirements.txt /
 RUN pip install -r /requirements.txt --break-system-packages && rm /requirements.txt
