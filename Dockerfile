@@ -29,7 +29,7 @@ apt-get update && apt-get install -y ./powershell.deb && apt-get clean && rm -rf
 rm powershell.deb
 EOF
 
-RUN pwsh -c "Install-Module -Name Sentry -Scope CurrentUser -Repository PSGallery -Force"
+RUN pwsh -c "Install-Module -Name Sentry -Scope AllUsers -Repository PSGallery -Force"
 
 COPY requirements.txt /
 RUN pip install -r /requirements.txt --break-system-packages && rm /requirements.txt
