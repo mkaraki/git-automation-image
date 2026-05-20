@@ -23,7 +23,7 @@ SHELL ["/bin/bash", "-c"]
 
 # Due to PowerShell Sentry isn't support PowerShell 7.6 series, Use 7.5.x for a moment
 # See: https://github.com/getsentry/sentry-powershell/pull/113
-ARG POWERSHELL_VERSION="v7.5.6"
+ARG POWERSHELL_VERSION="v7.6.1"
 
 RUN <<EOF
 wget -q https://github.com/PowerShell/PowerShell/releases/download/${POWERSHELL_VERSION}/powershell_${POWERSHELL_VERSION:1}-1.deb_amd64.deb -O powershell.deb
