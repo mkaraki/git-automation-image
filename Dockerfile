@@ -21,7 +21,9 @@ RUN apt-get update && apt-get install -y \
 
 SHELL ["/bin/bash", "-c"]
 
-ARG POWERSHELL_VERSION="v7.6.1"
+# Due to PowerShell Sentry isn't support PowerShell 7.6 series, Use 7.5.x for a moment
+# See: https://github.com/getsentry/sentry-powershell/pull/113
+ARG POWERSHELL_VERSION="v7.5.6"
 
 RUN <<EOF
 wget -q https://github.com/PowerShell/PowerShell/releases/download/${POWERSHELL_VERSION}/powershell_${POWERSHELL_VERSION:1}-1.deb_amd64.deb -O powershell.deb
