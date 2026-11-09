@@ -63,7 +63,7 @@
             "description": "Automerge PowerShell and sentry-cli minor/patch updates (by Muse)",
             "matchPackageNames": [
                 "PowerShell/PowerShell",
-                "getsentry/sentry-cli"
+                "sentry-cli"
             ],
             "matchUpdateTypes": ["minor", "patch"],
             "automerge": true,
