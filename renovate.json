@@ -47,6 +47,29 @@
             "matchManagers": [
               "github-actions"
             ]
+        },
+        {
+            "description": "Automerge GitHub Actions minor/patch updates (by Muse)",
+            "matchManagers": [
+                "github-actions"
+            ],
+            "matchUpdateTypes": ["minor", "patch"],
+            "automerge": true,
+            "automergeType": "pr",
+            "platformAutomerge": true,
+            "ignoreTests": false
+        },
+        {
+            "description": "Automerge PowerShell and sentry-cli minor/patch updates (by Muse)",
+            "matchPackageNames": [
+                "PowerShell/PowerShell",
+                "getsentry/sentry-cli"
+            ],
+            "matchUpdateTypes": ["minor", "patch"],
+            "automerge": true,
+            "automergeType": "pr",
+            "platformAutomerge": true,
+            "ignoreTests": false
         }
     ],
     "assignees": [
