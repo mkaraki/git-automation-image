@@ -10,7 +10,7 @@ ARG PYTHON3_PIP_VERSION="25.1.1+dfsg-1"
 ARG GIT_VERSION="1:2.47.3-0+deb13u1"
 
 # renovate: suite=trixie depName=ca-certificates
-ARG CA_CERTIFICATES_VERSION="20250419"
+ARG CA_CERTIFICATES_VERSION="20250419+deb13u1"
 
 RUN apt-get update && apt-get install -y \
     wget="${WGET_VERSION}" \
